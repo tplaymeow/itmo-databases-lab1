@@ -11,6 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HELIOS_HOST }}
+          username: ${{ secrets.HELIOS_USERNAME }}
+          password: ${{ secrets.HELIOS_PASSWORD }}
+          port: ${{ secrets.HELIOS_PORT }}
+          script: whoami
+
       - name: Copy files with SCP
         uses: appleboy/scp-action@v0.1.4
         with:
