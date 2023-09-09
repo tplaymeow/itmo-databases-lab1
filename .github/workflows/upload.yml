@@ -16,6 +16,7 @@ jobs:
         with:
           host: ${{ secrets.HELIOS_HOST }}
           username: ${{ secrets.HELIOS_USERNAME }}
+          key: ${{ secrets.HELIOS_SSH_KEY }}
           password: ${{ secrets.HELIOS_PASSWORD }}
           port: ${{ secrets.HELIOS_PORT }}
           script: whoami
