@@ -20,3 +20,4 @@ jobs:
           port: ${{ secrets.HELIOS_PORT }}
           source: "SQL"
           target: "/home/studs/s311703/databases-lab1"
+          debug: true
