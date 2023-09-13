@@ -2,20 +2,32 @@ CREATE TYPE ASTRONOMICAL_OBJECT_TYPE AS ENUM ('Planet', 'Star');
 
 CREATE TABLE SPACESHIP
 (
-    ID SERIAL PRIMARY KEY
+    ID        SERIAL PRIMARY KEY,
+    NAME      varchar(25) NOT NULL,
+    MAX_SPEED integer     NOT NULL
+);
+
+CREATE TABLE SPACESHIP_ROOM
+(
+    ID           SERIAL PRIMARY KEY,
+    BODY_NUMBER  integer NOT NULL,
+    ROOM_NUMBER  integer NOT NULL,
+    SPACESHIP_ID integer NOT NULL REFERENCES SPACESHIP ON DELETE CASCADE
 );
 
 CREATE TABLE HUMAN
 (
-    ID           SERIAL PRIMARY KEY,
-    NAME         varchar(25) NOT NULL,
-    SPACESHIP_ID integer     NOT NULL REFERENCES SPACESHIP ON DELETE CASCADE
+    ID                SERIAL PRIMARY KEY,
+    NAME              varchar(25) NOT NULL,
+    SPACESHIP_ROOM_ID integer     NOT NULL REFERENCES SPACESHIP_ROOM ON DELETE CASCADE
 );
 
 CREATE TABLE GALAXY
 (
     ID   SERIAL PRIMARY KEY,
-    NAME varchar(25) NOT NULL
+    NAME varchar(25) NOT NULL,
+    SIZE integer     NOT NULL CHECK ( SIZE > 0
+        )
 );
 
 CREATE TABLE PLANETARY_SYSTEM
@@ -31,7 +43,8 @@ CREATE TABLE ASTRONOMICAL_OBJECT
     TYPE                ASTRONOMICAL_OBJECT_TYPE NOT NULL,
     NAME                varchar(25)              NOT NULL,
     COLOR               varchar(25)              NOT NULL,
-    SIZE                integer                  NOT NULL CHECK ( SIZE > 0 ),
+    SIZE                integer                  NOT NULL CHECK ( SIZE > 0
+        ),
     PLANETARY_SYSTEM_ID integer                  NOT NULL REFERENCES PLANETARY_SYSTEM ON DELETE CASCADE
 );
 

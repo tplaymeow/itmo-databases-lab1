@@ -1,25 +1,33 @@
 INSERT INTO SPACESHIP
-VALUES (default),
-       (default);
+VALUES (default, 'spaceship1', 1000000),
+       (default, 'spaceship2', 1500000);
+
+INSERT INTO SPACESHIP_ROOM
+VALUES (default, 1, 35, 1),
+       (default, 2, 10, 1);
+
+INSERT INTO SPACESHIP_ROOM
+VALUES (default, 1, 35, 2),
+       (default, 2, 10, 2);
 
 INSERT INTO HUMAN
 VALUES (default, 'Timur', 1),
        (default, 'Gleb', 1),
        (default, 'Gleb', 1),
-       (default, 'Vadim', 1),
-       (default, 'Ivan', 1),
-       (default, 'Roman', 1),
-       (default, 'Sereja', 1);
+       (default, 'Vadim', 2),
+       (default, 'Ivan', 2),
+       (default, 'Roman', 2),
+       (default, 'Sereja', 2);
 
 INSERT INTO HUMAN
-VALUES (default, 'Vlad', 2),
-       (default, 'Glent', 2),
-       (default, 'Serega', 2),
-       (default, 'Rivi', 2);
+VALUES (default, 'Vlad', 3),
+       (default, 'Glent', 3),
+       (default, 'Serega', 4),
+       (default, 'Rivi', 4);
 
 INSERT INTO GALAXY
-VALUES (default, 'Milky Way'),
-       (default, 'So Far Galaxy');
+VALUES (default, 'Milky Way', 12345),
+       (default, 'So Far Galaxy', 67891);
 
 INSERT INTO PLANETARY_SYSTEM
 VALUES (default, 'Solar System', 1),
