@@ -4,3 +4,4 @@ init:
 
 clean:
 	@psql -h pg -d studs -f SQL/drop.sql
+
